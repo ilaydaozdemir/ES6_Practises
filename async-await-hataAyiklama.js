@@ -1,0 +1,29 @@
+const user={id:10,name:"ilayda"}; //nesne olusturdum
+const friend=[{id:11,name:'kemal'},{id:12,name:'tayfun'}]; //array olusturdum
+
+const getUser=()=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(user);
+        },500);
+    });
+};
+const getFriend=(userId)=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject("Arkadaş listesine ulaşılamadı!")
+        },1000);
+    });
+};
+
+async function akis(){
+    try{
+ const user=await getUser();
+const friend=await getFriend(user.id);
+console.log(user,friend);
+       }catch(error) {
+console.log(error);
+    }
+};
+//fonksiyonu cagırmayı unutma
+akis();
